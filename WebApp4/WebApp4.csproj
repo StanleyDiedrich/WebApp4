@@ -6,4 +6,22 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Data\" />
+    <None Remove="Data\Models\" />
+    <None Remove="Data\Interfaces\" />
+    <None Remove="Data\Mocks\" />
+    <None Remove="Controllers\" />
+    <None Remove="Views\" />
+    <None Remove="Views\Cars\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="Data\Models\" />
+    <Folder Include="Data\Interfaces\" />
+    <Folder Include="Data\Mocks\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="Views\" />
+    <Folder Include="Views\Cars\" />
+  </ItemGroup>
 </Project>
