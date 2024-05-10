@@ -1,24 +1,19 @@
-﻿@using WebApp4.Data.Models;
-@model IEnumerable<Car>
+﻿@using WebApp4.ViewModels;
+@model CarsListViewModel
 
 @{
-    Layout = null;
+    Layout = "_Layout";
 }
  
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width"/>
-    <title>List</title>
-</head>
 <body>
     <h2> Все автомобили</h2>
-    <h3>@ViewBag.Category</h3>
+    <h3>@Model.currCategoty</h3>
     @{
-        foreach (var car in Model)
+        foreach (var car in Model.Allcars)
         {
         <div>
+            <img src="@car.Img"> </img>
             <h2>Модель: @car.Name </h2>
             <p>Цена: @car.Price.ToString("c")</p>
         </div>
@@ -27,4 +22,4 @@
     
 
 </body>
-</html>
+

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -27,8 +28,26 @@ namespace WebApp4
                 app.UseDeveloperExceptionPage();
                 app.UseStatusCodePages();
                 app.UseStaticFiles();
-                app.UseMvcWithDefaultRoute();
-            
+                app.UseRouting();
+                app.UseEndpoints(endpoints =>
+                {
+                    endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Cars}/{action=Index}/{id?}");
+                });
+
+            app.Run(async (context) =>
+            {
+                context.Response.Redirect("/Cars/List");
+                await Task.CompletedTask;
+            });
+
+
+
+
+
+
+
 
         }
     }

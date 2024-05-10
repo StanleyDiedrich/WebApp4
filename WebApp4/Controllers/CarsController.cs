@@ -1,7 +1,9 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
 using WebApp4.Data.Interfaces;
+using WebApp4.ViewModels;
 namespace WebApp4.Controllers
+
 {
 	public class CarsController:Controller
 	{
@@ -16,9 +18,11 @@ namespace WebApp4.Controllers
 
 		public ViewResult List()
 		{
-			ViewBag.Category = "Some New";
-			var cars = _allcars.Cars;
-			return View(cars);
+			CarsListViewModel obj = new CarsListViewModel();
+			obj.Allcars = _allcars.Cars;
+			obj.currCategoty = "Автомобили";
+
+			return View(obj);
 		}
 	}
 }
